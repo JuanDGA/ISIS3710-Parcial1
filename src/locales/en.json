@@ -1,0 +1,15 @@
+{
+  "title": "Adopt a robot with RobotLovers!",
+  "login-title": "Sign in",
+  "login-username": "Username",
+  "login-password": "Password",
+  "login-enter": "Login",
+  "login-cancel": "Cancel",
+  "login-error": "Authentication error",
+  "robotList-tableHeaders-name": "Name",
+  "robotList-tableHeaders-model": "Model",
+  "robotList-tableHeaders-company": "Manufacturer company",
+  "robotDetail-year": "Year of manufacture",
+  "robotDetail-capacity": "Processing capacity",
+  "robotDetail-humor": "Mood"
+}

@@ -1,10 +1,13 @@
 import { Image } from "react-bootstrap";
 import BannerImage from "../assets/banner.png";
+import { FormattedMessage } from "react-intl";
 
 const Banner = () => {
   return (
     <>
-      <h1 className="text-center my-4">Adopta un robot con RobotLovers!</h1>
+      <h1 className="text-center my-4">
+        <FormattedMessage id="title" />
+      </h1>
       <Image
         src={BannerImage}
         alt="RobotLovers banner"

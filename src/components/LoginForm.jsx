@@ -3,12 +3,15 @@ import { useState } from "react";
 import axios from "axios";
 import { LOGIN_URL } from "../common/endpoints.js";
 import { useNavigate } from "react-router-dom";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+
+  const locales = useIntl();
 
   const clearInputs = () => {
     setUsername("");
@@ -32,12 +35,16 @@ const LoginForm = () => {
 
   return (
     <Form className="mt-3 mx-auto w-50 border p-5 rounded-2">
-      <h2 className="text-center">Inicio de sesión</h2>
+      <h2 className="text-center">
+        <FormattedMessage id="login-title" />
+      </h2>
       <Form.Group controlId="username" className="my-3">
-        <Form.Label className="fw-bold">Nombre de usuario</Form.Label>
+        <Form.Label className="fw-bold">
+          <FormattedMessage id="login-username" />
+        </Form.Label>
         <Form.Control
           type="text"
-          placeholder="Nombre de usuario"
+          placeholder={locales.formatMessage({ id: "login-username" })}
           aria-label="username"
           value={username}
           isInvalid={error}
@@ -45,23 +52,29 @@ const LoginForm = () => {
         />
       </Form.Group>
       <Form.Group controlId="password" className="my-3">
-        <Form.Label className="fw-bold">Contraseña</Form.Label>
+        <Form.Label className="fw-bold">
+          <FormattedMessage id="login-password" />
+        </Form.Label>
         <Form.Control
           type="password"
-          placeholder="Contraseña"
+          placeholder={locales.formatMessage({ id: "login-password" })}
           aria-label="password"
           value={password}
           isInvalid={error}
           onChange={(e) => setPassword(e.target.value)}
         />
       </Form.Group>
-      {error && <p className="fw-bold text-danger">Error de autenticación</p>}
+      {error && (
+        <p className="fw-bold text-danger">
+          <FormattedMessage id="login-error" />
+        </p>
+      )}
       <ButtonGroup className="w-100">
         <Button variant="primary" onClick={tryLogin}>
-          Ingresar
+          <FormattedMessage id="login-enter" />
         </Button>
         <Button variant="danger" onClick={clearInputs}>
-          Cancelar
+          <FormattedMessage id="login-cancel" />
         </Button>
       </ButtonGroup>
     </Form>

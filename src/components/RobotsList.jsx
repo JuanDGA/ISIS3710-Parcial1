@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../common/endpoints.js";
 import RobotDetail from "./RobotDetail.jsx";
+import { FormattedMessage } from "react-intl";
 
 const RobotsList = () => {
   const [robots, setRobots] = useState([]);
@@ -25,9 +26,15 @@ const RobotsList = () => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nombre</th>
-              <th>Modelo</th>
-              <th>Empresa fabricante</th>
+              <th>
+                <FormattedMessage id="robotList-tableHeaders-name" />
+              </th>
+              <th>
+                <FormattedMessage id="robotList-tableHeaders-model" />
+              </th>
+              <th>
+                <FormattedMessage id="robotList-tableHeaders-company" />
+              </th>
             </tr>
           </thead>
           <tbody>
